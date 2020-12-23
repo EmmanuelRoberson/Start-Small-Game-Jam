@@ -4,22 +4,44 @@ using UnityEngine;
 
 public class PlayerMovementBehaviour : MonoBehaviour
 {
+    
     public CharacterController characterController;
     public float moveSpeed;
+    public float gravity;
 
-    // Start is called before the first frame update
+    public Transform groundChecker;
+    public float groundCheckerRadius;
+    public LayerMask groundMask;
+
+    private Vector3 gravityVector;
+     private bool isGrounded;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Horizontal") > 0)
-            characterController.Move(transform.right * moveSpeed);
+        //casts a sphere check, if its touching the ground, will return true
+        isGrounded = Physics.CheckSphere(groundChecker.position, groundCheckerRadius, groundMask);
 
-        if (Input.GetAxis("Horizontal") > 0)
-            characterController.Move(-transform.right * moveSpeed);
+        if(isGrounded && gravityVector.y < 0) //if touching the ground and is falling
+        {
+            gravityVector.y = -2f; //this forces the player down on the ground
+        }
+
+        float xMovement = Input.GetAxis("Horizontal");
+        float zMovement = Input.GetAxis("Vertical");
+
+        Vector3 movementVector = (transform.right * xMovement) + (transform.forward * zMovement);
+
+        characterController.Move(movementVector * moveSpeed * Time.deltaTime);
+
+        gravityVector.y += gravity * Time.deltaTime;
+
+        characterController.Move(gravityVector * Time.deltaTime);
+
     }
 }
