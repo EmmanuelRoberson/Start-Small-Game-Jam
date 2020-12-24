@@ -7,6 +7,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
     
     public CharacterController characterController;
     public float moveSpeed;
+    private float initialSpeed;
     public float gravity;
 
     public bool canJump;
@@ -18,9 +19,12 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private Vector3 gravityVector;
      private bool isGrounded;
+
+     private bool isDefending;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        initialSpeed = moveSpeed;
     }
 
 
@@ -29,6 +33,10 @@ public class PlayerMovementBehaviour : MonoBehaviour
     {
         //casts a sphere check, if its touching the ground, will return true
         isGrounded = Physics.CheckSphere(groundChecker.position, groundCheckerRadius, groundMask);
+
+        isDefending = Input.GetMouseButton(1);
+
+        moveSpeed = (isDefending)? 0: initialSpeed;       
 
         if(isGrounded && gravityVector.y < 0) //if touching the ground and is falling
         {
