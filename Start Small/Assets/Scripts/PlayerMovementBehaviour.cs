@@ -9,6 +9,9 @@ public class PlayerMovementBehaviour : MonoBehaviour
     public float moveSpeed;
     public float gravity;
 
+    public bool canJump;
+    public float jumpHeight = 3;
+
     public Transform groundChecker;
     public float groundCheckerRadius;
     public LayerMask groundMask;
@@ -38,6 +41,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
         Vector3 movementVector = (transform.right * xMovement) + (transform.forward * zMovement);
 
         characterController.Move(movementVector * moveSpeed * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && isGrounded && canJump)
+        {
+            gravityVector.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
 
         gravityVector.y += gravity * Time.deltaTime;
 
