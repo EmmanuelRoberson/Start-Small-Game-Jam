@@ -260,7 +260,23 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.41680962
+      - time: 0
+        functionName: EnableDamageCollider
+        data: 
+        objectReferenceParameter: {fileID: 1915964384769983091, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0
+        functionName: CanDamage
+        data: 
+        objectReferenceParameter: {fileID: 1915964384769983091, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.32933107
         functionName: CanDamage
         data: 
         objectReferenceParameter: {fileID: 1915964384769983091, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
@@ -268,7 +284,15 @@ ModelImporter:
         floatParameter: 5
         intParameter: 0
         messageOptions: 0
-      - time: 0.6432247
+      - time: 0.6672384
+        functionName: CanDamage
+        data: 
+        objectReferenceParameter: {fileID: 1915964384769983091, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
+          type: 3}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.83018863
         functionName: CanDamage
         data: 
         objectReferenceParameter: {fileID: 1915964384769983091, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
@@ -276,8 +300,8 @@ ModelImporter:
         floatParameter: -1
         intParameter: 0
         messageOptions: 0
-      - time: 0
-        functionName: CanDamage
+      - time: 1
+        functionName: EnableDamageCollider
         data: 
         objectReferenceParameter: {fileID: 1915964384769983091, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
           type: 3}
