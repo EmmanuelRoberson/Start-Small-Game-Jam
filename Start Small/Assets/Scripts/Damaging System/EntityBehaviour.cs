@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EntityBehaviour : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class EntityBehaviour : MonoBehaviour
         damageRef.Instantiate();
 
         selfEntity.Initialize(healthRef.RuntimeValue, damageRef.RuntimeValue);
+
+        if (CompareTag("Player"))
+        {
+            transform.localScale *= 0.2f;
+        }
     }
 
     // Update is called once per frame
@@ -31,6 +37,11 @@ public class EntityBehaviour : MonoBehaviour
         if (healthRef.RuntimeValue <= 0)
         {
             Destroy(gameObject);
+        }
+
+        if (transform.localScale.magnitude >= 20)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -44,6 +55,8 @@ public class EntityBehaviour : MonoBehaviour
     {
         float damageDealt = otherEntity.TakeDamage(damageRef.RuntimeValue);
         damageOnScreenBehaviour.RecieveDamageUpdate(damageDealt);
+
+        transform.localScale *= 1.08f;
     }
 
     //Events to be called from the animator, this controls how much damage is done /////////////////////////
