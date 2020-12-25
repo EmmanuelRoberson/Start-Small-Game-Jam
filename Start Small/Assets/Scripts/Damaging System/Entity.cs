@@ -10,18 +10,11 @@ public class Entity
     //damage of the entity
     private float damage;
 
-    //Functions to be called when the entity dies
-    public delegate void DeathCall();
-
-    public DeathCall OnDie;
-
     //initialized the entity's value
     public void Initialize(float hp, float dmg)
     {
         health = hp;
         damage = dmg;
-
-        OnDie = new DeathCall(DeathCallInitializer);
     }
 
     //decreases the entitys health by the dmgTaken
@@ -36,8 +29,6 @@ public class Entity
     {
         reciever.TakeDamage(damage);
     }
-    private void DeathCallInitializer()
-    {}
 
     public float Health { get { return health; } }
     public float Damage => damage;

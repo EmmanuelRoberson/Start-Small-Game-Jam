@@ -12,6 +12,10 @@ public class EntityBehaviour : MonoBehaviour
     private bool canDamage;
 
     private Entity selfEntity = new Entity();
+
+    public DetachedTriggerBehaviour damageTrigger;
+
+    public DamageOnScreenBehaviour damageOnScreenBehaviour;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,30 +28,32 @@ public class EntityBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (selfEntity.Health >= 0)
+        if (healthRef.RuntimeValue <= 0)
         {
-            selfEntity.OnDie.Invoke();
+            Destroy(gameObject);
         }
     }
 
-    public void TakeDamage(float damageTaken)
+    public float TakeDamage(float damageTaken)
     {
-        selfEntity.TakeDamage(damageTaken);
+        healthRef.RuntimeValue -= damageTaken;
+        return damageTaken;
     }
 
-    //Event to be called from the animator, this controls how much damage is done
+    public void DoDamage(EntityBehaviour otherEntity)
+    {
+        float damageDealt = otherEntity.TakeDamage(damageRef.RuntimeValue);
+        damageOnScreenBehaviour.RecieveDamageUpdate(damageDealt);
+    }
+
+    //Events to be called from the animator, this controls how much damage is done /////////////////////////
     public void CanDamage(float val)
     {
-        damageRef.RuntimeValue = val + selfEntity.Damage;
+        damageRef.RuntimeValue = val + damageRef.value;
     }
 
-    void OnTriggerEnter(Collider other)
+    public void EnableDamageCollider(int intToBool)
     {
-        EntityBehaviour otherEntity = other.gameObject.GetComponent<EntityBehaviour>();
-        if (otherEntity != null)
-        {
-            otherEntity.TakeDamage(damageRef.RuntimeValue);
-        }
+        damageTrigger.EnableCollider(intToBool);
     }
-
 }
