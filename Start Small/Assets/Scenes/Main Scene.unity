@@ -12631,6 +12631,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 789711026}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &793920576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1915964384594984993, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1915964383003402738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &796408578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32046,6 +32052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---Player Turtle
       objectReference: {fileID: 0}
+    - target: {fileID: 1915964384769983095, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 793920576}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0fb9a15d4b167b4fb79a71b6e9919ba, type: 3}
 --- !u!20 &1915964383003402739 stripped
