@@ -1,23 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "GameEvents/GameEvent")]
 public class GameEvent : ScriptableObject, ISubscribeable
 {
     //List of all the IListeners that respond when the GameEvent is raised 
     private List<IListener> listeners = new List<IListener>();
     public void AddListener(IListener listener)
     {
-        throw new System.NotImplementedException();
+        listeners.Add(listener);
     }
 
     public void Raise(Object obj)
     {
-        throw new System.NotImplementedException();
+        Raise(obj);
+    }
+
+    public void Raise()
+    {
+        Raise(new Object());
     }
 
     public void RemoveListener(IListener listener)
     {
-        throw new System.NotImplementedException();
+        listeners.Remove(listener);
     }
 }

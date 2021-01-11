@@ -54,7 +54,7 @@ public class EntityBehaviour : MonoBehaviour
     public void DoDamage(EntityBehaviour otherEntity)
     {
         float damageDealt = otherEntity.TakeDamage(damageRef.RuntimeValue);
-        damageOnScreenBehaviour.RecieveDamageUpdate(damageDealt);
+        damageOnScreenBehaviour.RecieveDamageUpdate(damageDealt, transform.position);
 
         transform.localScale *= 1.08f;
     }

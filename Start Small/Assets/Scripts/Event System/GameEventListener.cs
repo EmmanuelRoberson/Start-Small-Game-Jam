@@ -1,29 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class GameEventListener : MonoBehaviour, IListener
 {
     [TextArea] public string Notes;
 
+    public GameEvent GameEvent;
+    public GameEventResponse Response;
 
-    public void OnEventRaised(params Object[] obj)
+
+    public GameObject SenderObject;
+
+    public void OnEnable()
     {
-        throw new System.NotImplementedException();
+        Subscribe();
+    }
+
+    public void OnDisable()
+    {
+        Unsubscribe();
+    }
+
+
+    public void OnEventRaised(params Object[] arguments)
+    {
+        var sender = arguments[0];
+        var other = arguments[1];
+
+        //if its null, or the sender is the SenderObject, call it
+        if (SenderObject == null)
+        {
+            Response.Invoke(arguments);
+        }
+        else
+        {
+            if (SenderObject == sender)
+            {
+                Response.Invoke(arguments);
+            }
+        }
     }
 
     public void OnEventRaised()
     {
-        throw new System.NotImplementedException();
+        OnEventRaised(null);
     }
 
     public void Subscribe()
     {
-        throw new System.NotImplementedException();
+        GameEvent.AddListener(this);
     }
 
     public void Unsubscribe()
     {
-        throw new System.NotImplementedException();
+        GameEvent.RemoveListener(this);
     }
+
+
 }

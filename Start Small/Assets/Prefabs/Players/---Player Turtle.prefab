@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &684721010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -754,11 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5677ef49f0d7d94a9f23ca19cd8416a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accumulatedDamageText: {fileID: 1837108942}
-  instantDamageText: {fileID: 890507905}
-  textLifetime: 2
-  disappearSpeed: 3
-  size: 36
+  PopupTextObject: {fileID: 2575668102844347796, guid: 4d6f55455df712a4fa174b6ecdda538c,
+    type: 3}
 --- !u!114 &1874076548
 MonoBehaviour:
   m_ObjectHideFlags: 0

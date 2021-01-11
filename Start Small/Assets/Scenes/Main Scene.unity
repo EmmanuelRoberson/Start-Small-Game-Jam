@@ -26856,6 +26856,66 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1804486389}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1806973389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806973391}
+  - component: {fileID: 1806973390}
+  m_Layer: 0
+  m_Name: Player Damage Event Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1806973390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806973389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069bd8b76ba24a64e82b1c9b6c89b525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 
+  GameEvent: {fileID: 11400000, guid: 1c8c328ba99961d44ba6e7a1a531ea29, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SenderObject: {fileID: 0}
+--- !u!4 &1806973391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806973389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.8394408, y: -1.898874, z: 26.877407}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1813566685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31982,6 +32042,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1911645844748360078, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914041331641797236, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
         type: 3}
       propertyPath: m_TagString
@@ -32005,7 +32070,7 @@ PrefabInstance:
     - target: {fileID: 1915964384769983088, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.098
+      value: 0.132
       objectReference: {fileID: 0}
     - target: {fileID: 1915964384769983088, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
         type: 3}
@@ -32051,6 +32116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ---Player Turtle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915964384769983094, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 1915964384769983095, guid: c0fb9a15d4b167b4fb79a71b6e9919ba,
         type: 3}

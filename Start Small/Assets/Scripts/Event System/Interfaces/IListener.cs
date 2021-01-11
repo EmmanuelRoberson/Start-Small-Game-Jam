@@ -7,10 +7,12 @@ using UnityEngine;
 public interface IListener
 {
     void Subscribe();
+    
     void Unsubscribe();
     
     //OnEventRaised is called when the event is raised, with parameters
-    void OnEventRaised(params Object[] obj);
+    void OnEventRaised(params Object[] arguments);
+
     //OnEventRaised is called when the event is raised, without parameters
     void OnEventRaised();
     
